@@ -1,0 +1,29 @@
+
+<!--<button type="button" class="btn btn-default" (click)="validationModal.open()">With form validation</button>-->
+<modal  #validationModal>
+
+  <form #modalForm="ngForm">
+
+    <modal-header [show-close]="true">
+      <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+
+    <modal-body>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" required ngModel #firstName="ngModel" name="firstName" id="firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" required ngModel #lastName="ngModel" name="lastName" id="lastName">
+      </div>
+    </modal-body>
+
+    <modal-footer>
+      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="validationModal.dismiss()">Cancel</button>
+      <button type="button" class="btn btn-primary" [disabled]="!modalForm.valid" (click)="validationModal.close()">Save</button>
+    </modal-footer>
+    
+  </form>
+
+</modal>
